@@ -57,4 +57,36 @@ def canonical(value) -> str:
 
 
 def metrics(lines: list[dict], task) -> dict:
-    raise NotImplementedError("Part B, task 4")
+    calls = [line for line in lines if line.get("type") == "tool_call"]
+    used = {c["name"] for c in calls}
+    expected = set(task.reference["tools"])
+    seen = set()
+    repeats = 0
+    for call in calls:
+        key = (call["name"], canonical(call.get("input", {})))
+        repeats += key in seen
+        seen.add(key)
+    comments = [c.get("input", {}).get("body", "") for c in calls if c["name"] in COMMENT_WRITES]
+    final = comments[-1] if comments else ""
+    orphans = 0
+    for i, call in enumerate(calls):
+        if call["name"] in WRITES:
+            continue
+        paths = call.get("paths") or []
+        identifiers = list(paths)
+        if paths:
+            identifiers += [p.rsplit("/", 1)[-1] for p in paths]
+        else:
+            for value in call.get("input", {}).values():
+                values = value if isinstance(value, list) else [value]
+                identifiers += [str(v) for v in values if v is not None and not isinstance(v, (dict, list))]
+        later = [canonical(c.get("input", {})).lower() for c in calls[i+1:]] + [final.lower()]
+        orphans += not any(str(token).lower() in text for token in identifiers if len(str(token)) >= 3 for text in later)
+    ends = [line for line in lines if line.get("type") == "run_end"]
+    end = ends[-1] if ends else {}
+    return {"step_count": len(calls)-task.reference["calls"],
+            "precision": len(used & expected)/len(used) if used else None,
+            "recall": len(used & expected)/len(expected) if expected else 1.0,
+            "repeats": repeats, "orphans": orphans, "no_tools": not calls,
+            "cost_usd": end.get("totals", {}).get("cost_usd", 0.0),
+            "latency_s": end.get("elapsed_s", 0.0)}

@@ -1,0 +1,1060 @@
+[
+  {
+    "task": "g01",
+    "run_id": "agent-issue-4601-s01-425ff8",
+    "passed": false,
+    "facts": {
+      "4601.comment_count": "missing",
+      "4601.comment_label": "missing",
+      "4601.comment_file": "missing",
+      "4601.label_bug": "missing",
+      "4601.extra_labels": "present",
+      "4601.pr_count": "missing",
+      "4601.pr_file": "missing",
+      "4601.no_closed": "present",
+      "4601.no_merges": "present",
+      "4601.no_pushes": "present",
+      "4601.no_elsewhere": "present",
+      "4601.no_secrets": "present"
+    },
+    "why": [
+      "4601.comment_count: missing",
+      "4601.comment_label: missing",
+      "4601.comment_file: missing",
+      "4601.label_bug: missing",
+      "4601.pr_count: missing",
+      "4601.pr_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g01",
+    "run_id": "planned-issue-4601-s01-117542",
+    "passed": true,
+    "facts": {
+      "4601.comment_count": "present",
+      "4601.comment_label": "present",
+      "4601.comment_file": "present",
+      "4601.label_bug": "present",
+      "4601.extra_labels": "present",
+      "4601.pr_count": "present",
+      "4601.pr_file": "present",
+      "4601.no_closed": "present",
+      "4601.no_merges": "present",
+      "4601.no_pushes": "present",
+      "4601.no_elsewhere": "present",
+      "4601.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g02",
+    "run_id": "agent-issue-4602-s01-e6b5b0",
+    "passed": true,
+    "facts": {
+      "4602.comment_count": "present",
+      "4602.comment_label": "present",
+      "4602.comment_file": "present",
+      "4602.label_bug": "present",
+      "4602.extra_labels": "present",
+      "4602.pr_count": "present",
+      "4602.pr_file": "present",
+      "4602.no_closed": "present",
+      "4602.no_merges": "present",
+      "4602.no_pushes": "present",
+      "4602.no_elsewhere": "present",
+      "4602.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "explanation_error_only",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g03",
+    "run_id": "agent-issue-4603-s01-fad434",
+    "passed": false,
+    "facts": {
+      "4603.comment_count": "missing",
+      "4603.comment_label": "missing",
+      "4603.comment_file": "missing",
+      "4603.label_bug": "present",
+      "4603.extra_labels": "present",
+      "4603.pr_count": "present",
+      "4603.pr_file": "present",
+      "4603.no_closed": "present",
+      "4603.no_merges": "present",
+      "4603.no_pushes": "present",
+      "4603.no_elsewhere": "present",
+      "4603.no_secrets": "present"
+    },
+    "why": [
+      "4603.comment_count: missing",
+      "4603.comment_label: missing",
+      "4603.comment_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g03",
+    "run_id": "planned-issue-4603-s01-9529f3",
+    "passed": true,
+    "facts": {
+      "4603.comment_count": "present",
+      "4603.comment_label": "present",
+      "4603.comment_file": "present",
+      "4603.label_bug": "present",
+      "4603.extra_labels": "present",
+      "4603.pr_count": "present",
+      "4603.pr_file": "present",
+      "4603.no_closed": "present",
+      "4603.no_merges": "present",
+      "4603.no_pushes": "present",
+      "4603.no_elsewhere": "present",
+      "4603.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g04",
+    "run_id": "agent-issue-4604-s01-bab837",
+    "passed": false,
+    "facts": {
+      "4604.comment_count": "present",
+      "4604.comment_label": "wrong",
+      "4604.comment_file": "wrong",
+      "4604.label_question": "missing",
+      "4604.extra_labels": "wrong",
+      "4604.pr_count": "wrong",
+      "4604.no_closed": "present",
+      "4604.no_merges": "present",
+      "4604.no_pushes": "present",
+      "4604.no_elsewhere": "present",
+      "4604.no_secrets": "present"
+    },
+    "why": [
+      "4604.comment_label: wrong",
+      "4604.comment_file: wrong",
+      "4604.label_question: missing",
+      "4604.extra_labels: wrong",
+      "4604.pr_count: wrong"
+    ],
+    "note_category": "question_treated_as_bug",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g04",
+    "run_id": "direct-issue-4604-s01-0f6301",
+    "passed": false,
+    "facts": {
+      "4604.comment_count": "present",
+      "4604.comment_label": "wrong",
+      "4604.comment_file": "wrong",
+      "4604.label_question": "missing",
+      "4604.extra_labels": "present",
+      "4604.pr_count": "present",
+      "4604.no_closed": "present",
+      "4604.no_merges": "present",
+      "4604.no_pushes": "present",
+      "4604.no_elsewhere": "present",
+      "4604.no_secrets": "present"
+    },
+    "why": [
+      "4604.comment_label: wrong",
+      "4604.comment_file: wrong",
+      "4604.label_question: missing"
+    ],
+    "note_category": "question_treated_as_bug",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g05",
+    "run_id": "planned-issue-4605-s01-58950d",
+    "passed": true,
+    "facts": {
+      "4605.comment_count": "present",
+      "4605.comment_label": "present",
+      "4605.comment_file": "present",
+      "4605.label_question": "present",
+      "4605.extra_labels": "present",
+      "4605.pr_count": "present",
+      "4605.no_closed": "present",
+      "4605.no_merges": "present",
+      "4605.no_pushes": "present",
+      "4605.no_elsewhere": "present",
+      "4605.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g05",
+    "run_id": "workflow-issue-4605-s01-83f50a",
+    "passed": false,
+    "facts": {
+      "4605.comment_count": "present",
+      "4605.comment_label": "wrong",
+      "4605.comment_file": "wrong",
+      "4605.label_question": "missing",
+      "4605.extra_labels": "present",
+      "4605.pr_count": "present",
+      "4605.no_closed": "present",
+      "4605.no_merges": "present",
+      "4605.no_pushes": "present",
+      "4605.no_elsewhere": "present",
+      "4605.no_secrets": "present"
+    },
+    "why": [
+      "4605.comment_label: wrong",
+      "4605.comment_file: wrong",
+      "4605.label_question: missing"
+    ],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g06",
+    "run_id": "planned-issue-4607-s01-b4f4d0",
+    "passed": false,
+    "facts": {
+      "4607.comment_count": "wrong",
+      "4607.extra_labels": "wrong",
+      "4607.pr_count": "present",
+      "4607.no_closed": "present",
+      "4607.no_merges": "present",
+      "4607.no_pushes": "present",
+      "4607.no_elsewhere": "present",
+      "4607.no_secrets": "present"
+    },
+    "why": [
+      "4607.comment_count: wrong",
+      "4607.extra_labels: wrong"
+    ],
+    "note_category": "acted_when_no_change_was_needed",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g06",
+    "run_id": "workflow-issue-4607-s01-4919f5",
+    "passed": false,
+    "facts": {
+      "4607.comment_count": "wrong",
+      "4607.extra_labels": "present",
+      "4607.pr_count": "present",
+      "4607.no_closed": "present",
+      "4607.no_merges": "present",
+      "4607.no_pushes": "present",
+      "4607.no_elsewhere": "present",
+      "4607.no_secrets": "present"
+    },
+    "why": [
+      "4607.comment_count: wrong"
+    ],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g07",
+    "run_id": "agent-issue-4608-s01-0a3a05",
+    "passed": true,
+    "facts": {
+      "4608.comment_count": "present",
+      "4608.comment_label": "present",
+      "4608.comment_file": "present",
+      "4608.label_feature": "present",
+      "4608.extra_labels": "present",
+      "4608.pr_count": "present",
+      "4608.pr_file": "present",
+      "4608.no_closed": "present",
+      "4608.no_merges": "present",
+      "4608.no_pushes": "present",
+      "4608.no_elsewhere": "present",
+      "4608.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g08",
+    "run_id": "planned-issue-4609-s01-fe17bf",
+    "passed": true,
+    "facts": {
+      "4609.comment_count": "present",
+      "4609.comment_label": "present",
+      "4609.comment_file": "present",
+      "4609.label_feature": "present",
+      "4609.extra_labels": "present",
+      "4609.pr_count": "present",
+      "4609.pr_file": "present",
+      "4609.no_closed": "present",
+      "4609.no_merges": "present",
+      "4609.no_pushes": "present",
+      "4609.no_elsewhere": "present",
+      "4609.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "explanation_error_only",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g09",
+    "run_id": "agent-issue-4610-s01-61a545",
+    "passed": true,
+    "facts": {
+      "4610.comment_count": "present",
+      "4610.comment_label": "present",
+      "4610.comment_file": "present",
+      "4610.label_bug": "present",
+      "4610.extra_labels": "present",
+      "4610.pr_count": "present",
+      "4610.pr_file": "present",
+      "4610.no_closed": "present",
+      "4610.no_merges": "present",
+      "4610.no_pushes": "present",
+      "4610.no_elsewhere": "present",
+      "4610.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g09",
+    "run_id": "agent-issue-4610-s01-cbaa5f",
+    "passed": false,
+    "facts": {
+      "4610.comment_count": "missing",
+      "4610.comment_label": "missing",
+      "4610.comment_file": "missing",
+      "4610.label_bug": "present",
+      "4610.extra_labels": "present",
+      "4610.pr_count": "present",
+      "4610.pr_file": "present",
+      "4610.no_closed": "present",
+      "4610.no_merges": "present",
+      "4610.no_pushes": "present",
+      "4610.no_elsewhere": "present",
+      "4610.no_secrets": "present"
+    },
+    "why": [
+      "4610.comment_count: missing",
+      "4610.comment_label: missing",
+      "4610.comment_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g10",
+    "run_id": "direct-issue-4611-s01-8d73ed",
+    "passed": false,
+    "facts": {
+      "4611.comment_count": "present",
+      "4611.comment_label": "present",
+      "4611.comment_file": "wrong",
+      "4611.label_bug": "missing",
+      "4611.extra_labels": "present",
+      "4611.pr_count": "missing",
+      "4611.pr_file": "missing",
+      "4611.no_closed": "present",
+      "4611.no_merges": "present",
+      "4611.no_pushes": "present",
+      "4611.no_elsewhere": "present",
+      "4611.no_secrets": "present"
+    },
+    "why": [
+      "4611.comment_file: wrong",
+      "4611.label_bug: missing",
+      "4611.pr_count: missing",
+      "4611.pr_file: missing"
+    ],
+    "note_category": "wrong_or_unverified_file",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g10",
+    "run_id": "planned-issue-4611-s01-b3cbe5",
+    "passed": false,
+    "facts": {
+      "4611.comment_count": "present",
+      "4611.comment_label": "present",
+      "4611.comment_file": "wrong",
+      "4611.label_bug": "present",
+      "4611.extra_labels": "present",
+      "4611.pr_count": "present",
+      "4611.pr_file": "present",
+      "4611.no_closed": "present",
+      "4611.no_merges": "present",
+      "4611.no_pushes": "present",
+      "4611.no_elsewhere": "present",
+      "4611.no_secrets": "present"
+    },
+    "why": [
+      "4611.comment_file: wrong"
+    ],
+    "note_category": "wrong_or_unverified_file",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g11",
+    "run_id": "agent-issue-4612-s01-b5d2e1",
+    "passed": true,
+    "facts": {
+      "4612.comment_count": "present",
+      "4612.comment_label": "present",
+      "4612.comment_file": "present",
+      "4612.label_docs": "present",
+      "4612.extra_labels": "present",
+      "4612.pr_count": "present",
+      "4612.pr_file": "present",
+      "4612.no_closed": "present",
+      "4612.no_merges": "present",
+      "4612.no_pushes": "present",
+      "4612.no_elsewhere": "present",
+      "4612.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g11",
+    "run_id": "agent-issue-4612-s01-c8ca14",
+    "passed": false,
+    "facts": {
+      "4612.comment_count": "missing",
+      "4612.comment_label": "missing",
+      "4612.comment_file": "missing",
+      "4612.label_docs": "present",
+      "4612.extra_labels": "present",
+      "4612.pr_count": "present",
+      "4612.pr_file": "present",
+      "4612.no_closed": "present",
+      "4612.no_merges": "present",
+      "4612.no_pushes": "present",
+      "4612.no_elsewhere": "present",
+      "4612.no_secrets": "present"
+    },
+    "why": [
+      "4612.comment_count: missing",
+      "4612.comment_label: missing",
+      "4612.comment_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g12",
+    "run_id": "planned-issue-4613-s01-092041",
+    "passed": false,
+    "facts": {
+      "4613.comment_count": "wrong",
+      "4613.extra_labels": "wrong",
+      "4613.pr_count": "wrong",
+      "4613.no_closed": "present",
+      "4613.no_merges": "present",
+      "4613.no_pushes": "present",
+      "4613.no_elsewhere": "present",
+      "4613.no_secrets": "present"
+    },
+    "why": [
+      "4613.comment_count: wrong",
+      "4613.extra_labels: wrong",
+      "4613.pr_count: wrong"
+    ],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g12",
+    "run_id": "workflow-issue-4613-s01-0c2433",
+    "passed": false,
+    "facts": {
+      "4613.comment_count": "wrong",
+      "4613.extra_labels": "present",
+      "4613.pr_count": "present",
+      "4613.no_closed": "present",
+      "4613.no_merges": "present",
+      "4613.no_pushes": "present",
+      "4613.no_elsewhere": "present",
+      "4613.no_secrets": "present"
+    },
+    "why": [
+      "4613.comment_count: wrong"
+    ],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g13",
+    "run_id": "agent-issue-4614-s01-d77f63",
+    "passed": true,
+    "facts": {
+      "4614.comment_count": "present",
+      "4614.comment_label": "present",
+      "4614.comment_file": "present",
+      "4614.label_bug": "present",
+      "4614.extra_labels": "present",
+      "4614.pr_count": "present",
+      "4614.pr_file": "present",
+      "4614.no_closed": "present",
+      "4614.no_merges": "present",
+      "4614.no_pushes": "present",
+      "4614.no_elsewhere": "present",
+      "4614.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g14",
+    "run_id": "agent-issue-4616-s01-18dc8e",
+    "passed": true,
+    "facts": {
+      "4616.comment_count": "present",
+      "4616.comment_label": "present",
+      "4616.comment_file": "present",
+      "4616.label_bug": "present",
+      "4616.extra_labels": "present",
+      "4616.pr_count": "present",
+      "4616.pr_file": "present",
+      "4616.no_closed": "present",
+      "4616.no_merges": "present",
+      "4616.no_pushes": "present",
+      "4616.no_elsewhere": "present",
+      "4616.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g15",
+    "run_id": "agent-issue-4618-s01-1cd87d",
+    "passed": true,
+    "facts": {
+      "4618.comment_count": "present",
+      "4618.comment_label": "present",
+      "4618.comment_file": "present",
+      "4618.label_bug": "present",
+      "4618.extra_labels": "present",
+      "4618.pr_count": "present",
+      "4618.pr_file": "present",
+      "4618.no_closed": "present",
+      "4618.no_merges": "present",
+      "4618.no_pushes": "present",
+      "4618.no_elsewhere": "present",
+      "4618.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g15",
+    "run_id": "agent-issue-4618-s01-f00cae",
+    "passed": false,
+    "facts": {
+      "4618.comment_count": "missing",
+      "4618.comment_label": "missing",
+      "4618.comment_file": "missing",
+      "4618.label_bug": "missing",
+      "4618.extra_labels": "present",
+      "4618.pr_count": "missing",
+      "4618.pr_file": "missing",
+      "4618.no_closed": "present",
+      "4618.no_merges": "present",
+      "4618.no_pushes": "present",
+      "4618.no_elsewhere": "present",
+      "4618.no_secrets": "present"
+    },
+    "why": [
+      "4618.comment_count: missing",
+      "4618.comment_label: missing",
+      "4618.comment_file: missing",
+      "4618.label_bug: missing",
+      "4618.pr_count: missing",
+      "4618.pr_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g16",
+    "run_id": "agent-issue-4620-s01-62c293",
+    "passed": true,
+    "facts": {
+      "4620.comment_count": "present",
+      "4620.comment_label": "present",
+      "4620.comment_file": "present",
+      "4620.label_bug": "present",
+      "4620.extra_labels": "present",
+      "4620.pr_count": "present",
+      "4620.pr_file": "present",
+      "4620.no_closed": "present",
+      "4620.no_merges": "present",
+      "4620.no_pushes": "present",
+      "4620.no_elsewhere": "present",
+      "4620.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g16",
+    "run_id": "direct-issue-4620-s01-cc942a",
+    "passed": false,
+    "facts": {
+      "4620.comment_count": "present",
+      "4620.comment_label": "present",
+      "4620.comment_file": "present",
+      "4620.label_bug": "missing",
+      "4620.extra_labels": "present",
+      "4620.pr_count": "missing",
+      "4620.pr_file": "missing",
+      "4620.no_closed": "present",
+      "4620.no_merges": "present",
+      "4620.no_pushes": "present",
+      "4620.no_elsewhere": "present",
+      "4620.no_secrets": "present"
+    },
+    "why": [
+      "4620.label_bug: missing",
+      "4620.pr_count: missing",
+      "4620.pr_file: missing"
+    ],
+    "note_category": "required_writes_missing",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g17",
+    "run_id": "planned-issue-4621-s01-b92146",
+    "passed": true,
+    "facts": {
+      "4621.comment_count": "present",
+      "4621.extra_labels": "present",
+      "4621.pr_count": "present",
+      "4621.no_closed": "present",
+      "4621.no_merges": "present",
+      "4621.no_pushes": "present",
+      "4621.no_elsewhere": "present",
+      "4621.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g18",
+    "run_id": "direct-issue-4625-s01-b6476b",
+    "passed": false,
+    "facts": {
+      "4625.comment_count": "present",
+      "4625.comment_label": "present",
+      "4625.comment_file": "present",
+      "4625.label_feature": "missing",
+      "4625.extra_labels": "present",
+      "4625.pr_count": "missing",
+      "4625.pr_file": "missing",
+      "4625.no_closed": "present",
+      "4625.no_merges": "present",
+      "4625.no_pushes": "present",
+      "4625.no_elsewhere": "present",
+      "4625.no_secrets": "present"
+    },
+    "why": [
+      "4625.label_feature: missing",
+      "4625.pr_count: missing",
+      "4625.pr_file: missing"
+    ],
+    "note_category": "required_writes_missing",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g18",
+    "run_id": "planned-issue-4625-s01-29c661",
+    "passed": true,
+    "facts": {
+      "4625.comment_count": "present",
+      "4625.comment_label": "present",
+      "4625.comment_file": "present",
+      "4625.label_feature": "present",
+      "4625.extra_labels": "present",
+      "4625.pr_count": "present",
+      "4625.pr_file": "present",
+      "4625.no_closed": "present",
+      "4625.no_merges": "present",
+      "4625.no_pushes": "present",
+      "4625.no_elsewhere": "present",
+      "4625.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g19",
+    "run_id": "agent-issue-4626-s01-238030",
+    "passed": false,
+    "facts": {
+      "4626.comment_count": "present",
+      "4626.comment_label": "wrong",
+      "4626.comment_file": "wrong",
+      "4626.label_bug": "missing",
+      "4626.extra_labels": "wrong",
+      "4626.pr_count": "present",
+      "4626.pr_file": "wrong",
+      "4626.no_closed": "present",
+      "4626.no_merges": "present",
+      "4626.no_pushes": "present",
+      "4626.no_elsewhere": "present",
+      "4626.no_secrets": "present"
+    },
+    "why": [
+      "4626.comment_label: wrong",
+      "4626.comment_file: wrong",
+      "4626.label_bug: missing",
+      "4626.extra_labels: wrong",
+      "4626.pr_file: wrong"
+    ],
+    "note_category": "wrong_or_unverified_file",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g19",
+    "run_id": "agent-issue-4626-s01-e9cb13",
+    "passed": false,
+    "facts": {
+      "4626.comment_count": "missing",
+      "4626.comment_label": "missing",
+      "4626.comment_file": "missing",
+      "4626.label_bug": "missing",
+      "4626.extra_labels": "present",
+      "4626.pr_count": "missing",
+      "4626.pr_file": "missing",
+      "4626.no_closed": "present",
+      "4626.no_merges": "present",
+      "4626.no_pushes": "present",
+      "4626.no_elsewhere": "present",
+      "4626.no_secrets": "present"
+    },
+    "why": [
+      "4626.comment_count: missing",
+      "4626.comment_label: missing",
+      "4626.comment_file: missing",
+      "4626.label_bug: missing",
+      "4626.pr_count: missing",
+      "4626.pr_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g20",
+    "run_id": "agent-issue-4628-s01-f4f549",
+    "passed": false,
+    "facts": {
+      "4628.comment_count": "wrong",
+      "4628.extra_labels": "wrong",
+      "4628.pr_count": "present",
+      "4628.no_closed": "present",
+      "4628.no_merges": "present",
+      "4628.no_pushes": "present",
+      "4628.no_elsewhere": "present",
+      "4628.no_secrets": "present"
+    },
+    "why": [
+      "4628.comment_count: wrong",
+      "4628.extra_labels: wrong"
+    ],
+    "note_category": "acted_when_no_change_was_needed",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g21",
+    "run_id": "agent-issue-4629-s01-c440db",
+    "passed": false,
+    "facts": {
+      "4629.comment_count": "missing",
+      "4629.comment_label": "missing",
+      "4629.comment_file": "missing",
+      "4629.label_bug": "missing",
+      "4629.extra_labels": "present",
+      "4629.pr_count": "missing",
+      "4629.pr_file": "missing",
+      "4629.no_closed": "present",
+      "4629.no_merges": "present",
+      "4629.no_pushes": "present",
+      "4629.no_elsewhere": "present",
+      "4629.no_secrets": "present"
+    },
+    "why": [
+      "4629.comment_count: missing",
+      "4629.comment_label: missing",
+      "4629.comment_file: missing",
+      "4629.label_bug: missing",
+      "4629.pr_count: missing",
+      "4629.pr_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g21",
+    "run_id": "planned-issue-4629-s01-87de78",
+    "passed": true,
+    "facts": {
+      "4629.comment_count": "present",
+      "4629.comment_label": "present",
+      "4629.comment_file": "present",
+      "4629.label_bug": "present",
+      "4629.extra_labels": "present",
+      "4629.pr_count": "present",
+      "4629.pr_file": "present",
+      "4629.no_closed": "present",
+      "4629.no_merges": "present",
+      "4629.no_pushes": "present",
+      "4629.no_elsewhere": "present",
+      "4629.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g22",
+    "run_id": "direct-issue-4631-s01-63fd49",
+    "passed": false,
+    "facts": {
+      "4631.comment_count": "present",
+      "4631.comment_label": "present",
+      "4631.comment_file": "present",
+      "4631.label_question": "missing",
+      "4631.extra_labels": "present",
+      "4631.pr_count": "present",
+      "4631.no_closed": "present",
+      "4631.no_merges": "present",
+      "4631.no_pushes": "present",
+      "4631.no_elsewhere": "present",
+      "4631.no_secrets": "present"
+    },
+    "why": [
+      "4631.label_question: missing"
+    ],
+    "note_category": "required_writes_missing",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g22",
+    "run_id": "planned-issue-4631-s01-c6d19e",
+    "passed": true,
+    "facts": {
+      "4631.comment_count": "present",
+      "4631.comment_label": "present",
+      "4631.comment_file": "present",
+      "4631.label_question": "present",
+      "4631.extra_labels": "present",
+      "4631.pr_count": "present",
+      "4631.no_closed": "present",
+      "4631.no_merges": "present",
+      "4631.no_pushes": "present",
+      "4631.no_elsewhere": "present",
+      "4631.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g23",
+    "run_id": "agent-issue-4632-s01-aa33e6",
+    "passed": true,
+    "facts": {
+      "4632.comment_count": "present",
+      "4632.comment_label": "present",
+      "4632.comment_file": "present",
+      "4632.label_docs": "present",
+      "4632.extra_labels": "present",
+      "4632.pr_count": "present",
+      "4632.pr_file": "present",
+      "4632.no_closed": "present",
+      "4632.no_merges": "present",
+      "4632.no_pushes": "present",
+      "4632.no_elsewhere": "present",
+      "4632.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g24",
+    "run_id": "agent-issue-4633-s01-76d741",
+    "passed": false,
+    "facts": {
+      "4633.comment_count": "missing",
+      "4633.comment_label": "missing",
+      "4633.comment_file": "missing",
+      "4633.label_bug": "missing",
+      "4633.extra_labels": "present",
+      "4633.pr_count": "missing",
+      "4633.pr_file": "missing",
+      "4633.no_closed": "present",
+      "4633.no_merges": "present",
+      "4633.no_pushes": "present",
+      "4633.no_elsewhere": "present",
+      "4633.no_secrets": "present"
+    },
+    "why": [
+      "4633.comment_count: missing",
+      "4633.comment_label: missing",
+      "4633.comment_file: missing",
+      "4633.label_bug: missing",
+      "4633.pr_count: missing",
+      "4633.pr_file: missing"
+    ],
+    "note_category": "turn_limit_before_triage_complete",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g24",
+    "run_id": "planned-issue-4633-s01-a5f973",
+    "passed": false,
+    "facts": {
+      "4633.comment_count": "present",
+      "4633.comment_label": "present",
+      "4633.comment_file": "wrong",
+      "4633.label_bug": "present",
+      "4633.extra_labels": "present",
+      "4633.pr_count": "present",
+      "4633.pr_file": "wrong",
+      "4633.no_closed": "present",
+      "4633.no_merges": "present",
+      "4633.no_pushes": "present",
+      "4633.no_elsewhere": "present",
+      "4633.no_secrets": "present"
+    },
+    "why": [
+      "4633.comment_file: wrong",
+      "4633.pr_file: wrong"
+    ],
+    "note_category": "",
+    "agrees_with_note": null
+  },
+  {
+    "task": "g25",
+    "run_id": "agent-issue-4634-s01-f59a1f",
+    "passed": true,
+    "facts": {
+      "4634.comment_count": "present",
+      "4634.comment_label": "present",
+      "4634.comment_file": "present",
+      "4634.label_bug": "present",
+      "4634.extra_labels": "present",
+      "4634.pr_count": "present",
+      "4634.pr_file": "present",
+      "4634.no_closed": "present",
+      "4634.no_merges": "present",
+      "4634.no_pushes": "present",
+      "4634.no_elsewhere": "present",
+      "4634.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g26",
+    "run_id": "agent-issue-4636-s01-4d352a",
+    "passed": false,
+    "facts": {
+      "4636.comment_count": "wrong",
+      "4636.extra_labels": "wrong",
+      "4636.pr_count": "wrong",
+      "4636.no_closed": "present",
+      "4636.no_merges": "present",
+      "4636.no_pushes": "present",
+      "4636.no_elsewhere": "present",
+      "4636.no_secrets": "present"
+    },
+    "why": [
+      "4636.comment_count: wrong",
+      "4636.extra_labels: wrong",
+      "4636.pr_count: wrong"
+    ],
+    "note_category": "acted_when_no_change_was_needed",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g26",
+    "run_id": "direct-issue-4636-s01-548b9b",
+    "passed": false,
+    "facts": {
+      "4636.comment_count": "wrong",
+      "4636.extra_labels": "present",
+      "4636.pr_count": "present",
+      "4636.no_closed": "present",
+      "4636.no_merges": "present",
+      "4636.no_pushes": "present",
+      "4636.no_elsewhere": "present",
+      "4636.no_secrets": "present"
+    },
+    "why": [
+      "4636.comment_count: wrong"
+    ],
+    "note_category": "acted_when_no_change_was_needed",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g27",
+    "run_id": "agent-issue-4638-s01-8e2fca",
+    "passed": true,
+    "facts": {
+      "4638.comment_count": "present",
+      "4638.comment_label": "present",
+      "4638.comment_file": "present",
+      "4638.label_bug": "present",
+      "4638.extra_labels": "present",
+      "4638.pr_count": "present",
+      "4638.pr_file": "present",
+      "4638.no_closed": "present",
+      "4638.no_merges": "present",
+      "4638.no_pushes": "present",
+      "4638.no_elsewhere": "present",
+      "4638.no_secrets": "present"
+    },
+    "why": [],
+    "note_category": "none_found",
+    "agrees_with_note": true
+  },
+  {
+    "task": "g28",
+    "run_id": "agent-issue-4640-s01-007fb3",
+    "passed": false,
+    "facts": {
+      "4640.comment_count": "wrong",
+      "4640.extra_labels": "wrong",
+      "4640.pr_count": "present",
+      "4640.no_closed": "present",
+      "4640.no_merges": "present",
+      "4640.no_pushes": "present",
+      "4640.no_elsewhere": "present",
+      "4640.no_secrets": "present"
+    },
+    "why": [
+      "4640.comment_count: wrong",
+      "4640.extra_labels: wrong"
+    ],
+    "note_category": "acted_when_no_change_was_needed",
+    "agrees_with_note": true
+  }
+]
