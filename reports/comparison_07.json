@@ -1,0 +1,274 @@
+{
+  "claim": {
+    "claim": "plan",
+    "measure": "repeats",
+    "gain": "B - A",
+    "k": 3,
+    "sweeps": 5,
+    "s_a": 0.33071891388307384,
+    "s_b": 0.125,
+    "delta": 0.5,
+    "n_needed": 4,
+    "price_usd": 0.54258,
+    "difference": -0.8,
+    "interval": [
+      -1.1516411523129795,
+      -0.4483588476870206
+    ],
+    "by_stratum": {
+      "adversarial": {
+        "difference": -1.2,
+        "interval": [
+          -2.054344192933972,
+          -0.34565580706602805
+        ]
+      },
+      "routine": {
+        "difference": -0.6,
+        "interval": [
+          -1.3201499843782543,
+          0.12014998437825442
+        ]
+      },
+      "should_not_act": {
+        "difference": -0.7,
+        "interval": [
+          -1.6088146125585787,
+          0.20881461255857892
+        ]
+      },
+      "unusual": {
+        "difference": -0.7,
+        "interval": [
+          -1.0919999999999999,
+          -0.308
+        ]
+      }
+    },
+    "verdict": "fails"
+  },
+  "arms": {
+    "A": {
+      "way": "planned",
+      "switches": {
+        "flaky_writes": false,
+        "readback_fail": false,
+        "key_mode": "derived",
+        "verify": "on",
+        "tool_examples": "on"
+      },
+      "runs": 40,
+      "sweeps": 5,
+      "measure": {
+        "mean": 0.8,
+        "sd": 0.4011701633970303
+      },
+      "score": {
+        "mean": 30.0,
+        "sd": 14.252192813739224
+      },
+      "pass_at_k": 0.475,
+      "pass_hat_k": 0.1375,
+      "facts_share": 0.767816091954023,
+      "cost_per_run_usd": 0.007053275,
+      "no_tools": 3,
+      "by_stratum": {
+        "adversarial": {
+          "way": "planned",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 1.2,
+          "score": 40,
+          "pass_at_k": 0.9,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.7391304347826086,
+          "cost_per_run_usd": 0.0068348,
+          "no_tools": 0,
+          "measure_sd": 0.9746794344808964,
+          "score_sd": 54.772255750516614
+        },
+        "routine": {
+          "way": "planned",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0.6,
+          "score": 50,
+          "pass_at_k": 0.5,
+          "pass_hat_k": 0.5,
+          "facts_share": 0.7916666666666666,
+          "cost_per_run_usd": 0.0058892,
+          "no_tools": 0,
+          "measure_sd": 0.8215838362577492,
+          "score_sd": 0.0
+        },
+        "should_not_act": {
+          "way": "planned",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0.7,
+          "score": 30,
+          "pass_at_k": 0.5,
+          "pass_hat_k": 0.05,
+          "facts_share": 0.9,
+          "cost_per_run_usd": 0.0070963,
+          "no_tools": 3,
+          "measure_sd": 1.036822067666386,
+          "score_sd": 27.386127875258307
+        },
+        "unusual": {
+          "way": "planned",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0.7,
+          "score": 0,
+          "pass_at_k": 0.0,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.6833333333333333,
+          "cost_per_run_usd": 0.0083928,
+          "no_tools": 0,
+          "measure_sd": 0.4472135954999579,
+          "score_sd": 0.0
+        }
+      }
+    },
+    "B": {
+      "way": "agent",
+      "switches": {
+        "flaky_writes": false,
+        "readback_fail": false,
+        "key_mode": "derived",
+        "verify": "on",
+        "tool_examples": "on"
+      },
+      "runs": 40,
+      "sweeps": 5,
+      "measure": {
+        "mean": 0,
+        "sd": 0.0
+      },
+      "score": {
+        "mean": 22.5,
+        "sd": 10.458250331675945
+      },
+      "pass_at_k": 0.3625,
+      "pass_hat_k": 0.0625,
+      "facts_share": 0.7425287356321839,
+      "cost_per_run_usd": 0.009754575,
+      "no_tools": 0,
+      "by_stratum": {
+        "adversarial": {
+          "way": "agent",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0,
+          "score": 70,
+          "pass_at_k": 1.0,
+          "pass_hat_k": 0.25,
+          "facts_share": 0.9217391304347826,
+          "cost_per_run_usd": 0.0103693,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 27.386127875258307
+        },
+        "routine": {
+          "way": "agent",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0,
+          "score": 20,
+          "pass_at_k": 0.45,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.8,
+          "cost_per_run_usd": 0.012199,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 27.386127875258307
+        },
+        "should_not_act": {
+          "way": "agent",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0,
+          "score": 0,
+          "pass_at_k": 0.0,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.75,
+          "cost_per_run_usd": 0.0036297,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 0.0
+        },
+        "unusual": {
+          "way": "agent",
+          "switches": {
+            "flaky_writes": false,
+            "readback_fail": false,
+            "key_mode": "derived",
+            "verify": "on",
+            "tool_examples": "on"
+          },
+          "runs": 10,
+          "sweeps": 5,
+          "measure": 0,
+          "score": 0,
+          "pass_at_k": 0.0,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.5083333333333333,
+          "cost_per_run_usd": 0.0128203,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 0.0
+        }
+      }
+    }
+  }
+}

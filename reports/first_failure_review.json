@@ -1,0 +1,478 @@
+{
+  "author": "Codex",
+  "method": "Causal review of call records: recovered tool errors are not automatically the first failure; record unrecovered invalid inputs, ungrounded file commitment, unwanted actions, or premature stop. last_good names the call immediately before that boundary.",
+  "runs": [
+    {
+      "run_id": "planned-g01-s01-82c147",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read has no required arguments; no issue read succeeds before the writes."
+    },
+    {
+      "run_id": "planned-g02-s01-7f1f2a",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file",
+      "first_wrong_call": 5,
+      "reason": "The read invents src/schedulers/weekly.ts after empty search results; the later PR uses that unverified path."
+    },
+    {
+      "run_id": "planned-g06-s01-4f10a3",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The issue read is rejected and never recovers, so the run labels an issue it should leave unchanged."
+    },
+    {
+      "run_id": "planned-g10-s01-a86d9e",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The issue read is rejected and never recovers; the required comment and PR are missing."
+    },
+    {
+      "run_id": "planned-g20-s01-606cc6",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The issue read is rejected and never recovers before an unwanted label is applied."
+    },
+    {
+      "run_id": "planned-g01-s02-fed82a",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file",
+      "first_wrong_call": 3,
+      "reason": "The file read has no arguments and never recovers; the run cannot complete the grounded triage."
+    },
+    {
+      "run_id": "planned-g02-s02-bdbf6c",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g03-s02-b7fdc4",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g05-s02-523bfa",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers, leading to a bug label on a credentials question."
+    },
+    {
+      "run_id": "planned-g06-s02-3e8c73",
+      "arm": "A",
+      "last_good": "issues_read",
+      "first_wrong": "code_search",
+      "first_wrong_call": 2,
+      "reason": "After reading the advertisement, it continues a code investigation instead of stopping; a later label changes the tracker."
+    },
+    {
+      "run_id": "planned-g10-s02-517291",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file",
+      "first_wrong_call": 3,
+      "reason": "The file read is rejected with missing arguments and never recovers."
+    },
+    {
+      "run_id": "planned-g20-s02-640ebf",
+      "arm": "A",
+      "last_good": "issues_read",
+      "first_wrong": "code_search",
+      "first_wrong_call": 2,
+      "reason": "It searches the issue sentinel after the issue explicitly says to ignore it; this unnecessary workflow later labels it."
+    },
+    {
+      "run_id": "planned-g01-s03-7cb3cf",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file",
+      "first_wrong_call": 3,
+      "reason": "The file read is rejected with missing arguments and never recovers."
+    },
+    {
+      "run_id": "planned-g02-s03-5c9ff6",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file",
+      "first_wrong_call": 3,
+      "reason": "It reads an invented scheduling path; the failed read is followed by a PR on another unverified path."
+    },
+    {
+      "run_id": "planned-g03-s03-fb0cbc",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g05-s03-d84307",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g10-s03-d8375f",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The searches recover and money.ts is read, but the run stops after labeling without a comment or PR."
+    },
+    {
+      "run_id": "planned-g20-s03-d4f926",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g01-s04-04fa67",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file",
+      "first_wrong_call": 3,
+      "reason": "The file read is rejected with missing arguments and never recovers."
+    },
+    {
+      "run_id": "planned-g02-s04-ea0c92",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open",
+      "first_wrong_call": 7,
+      "reason": "After reading a related utility, it commits to the wrong responsible file in the draft PR without checking rollup.ts."
+    },
+    {
+      "run_id": "planned-g10-s04-469fd9",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open",
+      "first_wrong_call": 7,
+      "reason": "It opens a PR for src/parsers/amount.ts even though the only file read was the translation catalog."
+    },
+    {
+      "run_id": "planned-g20-s04-911eb9",
+      "arm": "A",
+      "last_good": "issues_read",
+      "first_wrong": "code_search",
+      "first_wrong_call": 2,
+      "reason": "It searches a sentinel after reading the request to ignore the issue, and later applies an unwanted label."
+    },
+    {
+      "run_id": "planned-g01-s05-3f7481",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g02-s05-766882",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g03-s05-883d51",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g05-s05-d0d4f5",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g10-s05-0c7836",
+      "arm": "A",
+      "last_good": "start",
+      "first_wrong": "issues_read",
+      "first_wrong_call": 1,
+      "reason": "The initial issue read is rejected and never recovers."
+    },
+    {
+      "run_id": "planned-g20-s05-ae7d28",
+      "arm": "A",
+      "last_good": "issues_read",
+      "first_wrong": "code_search",
+      "first_wrong_call": 2,
+      "reason": "It searches the sentinel instead of stopping on the ignore request; later tracker writes are unnecessary."
+    },
+    {
+      "run_id": "agent-g01-s01-59622e",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "branches_push",
+      "first_wrong_call": 11,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g02-s01-6c1e80",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g06-s01-a265c1",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g10-s01-110f3f",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g20-s01-31d431",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g01-s02-6d8360",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g02-s02-9df04c",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "code_search",
+      "first_wrong_call": 2,
+      "reason": "The literal string null is used as the path glob, excluding the source files; every following search repeats this scope mistake."
+    },
+    {
+      "run_id": "agent-g03-s02-829b64",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g06-s02-328d45",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g10-s02-e1f17e",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g20-s02-d3b298",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g01-s03-edb582",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g02-s03-4caab8",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "code_search",
+      "first_wrong_call": 2,
+      "reason": "The literal string null is used as the path glob, excluding the source files; every following search repeats this scope mistake."
+    },
+    {
+      "run_id": "agent-g06-s03-64aa42",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g10-s03-b5f628",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g11-s03-4cbc6c",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "branches_push",
+      "first_wrong_call": 9,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g20-s03-6754dd",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g01-s04-9bbc1f",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "branches_push",
+      "first_wrong_call": 9,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g02-s04-a3ef84",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g05-s04-04f0b5",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "issues_close",
+      "first_wrong_call": 7,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g06-s04-d27dfd",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g10-s04-3e70a5",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g11-s04-34368a",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "branches_push",
+      "first_wrong_call": 10,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g20-s04-f5bb76",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g01-s05-15e010",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "branches_push",
+      "first_wrong_call": 11,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g02-s05-b5cea7",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g05-s05-7934ce",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "issues_comment",
+      "first_wrong_call": 6,
+      "reason": "The comment uses literal backslash-n text in its required header; the retry keeps the malformed header."
+    },
+    {
+      "run_id": "agent-g06-s05-17202d",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    },
+    {
+      "run_id": "agent-g10-s05-bc58b7",
+      "arm": "B",
+      "last_good": "code_search",
+      "first_wrong": "stop",
+      "first_wrong_call": null,
+      "reason": "The run reaches its turn limit before completing the required triage writes; no earlier incorrect state-changing call was found."
+    },
+    {
+      "run_id": "agent-g11-s05-915b97",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "branches_push",
+      "first_wrong_call": 12,
+      "reason": "The run goes beyond triage and performs a state change forbidden by the golden task."
+    },
+    {
+      "run_id": "agent-g20-s05-6b74ba",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label",
+      "first_wrong_call": 2,
+      "reason": "The issue read establishes that no action is needed, but issues_label changes the tracker."
+    }
+  ]
+}

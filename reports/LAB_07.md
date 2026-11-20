@@ -1,112 +1,132 @@
-# Assignment 7 · The evaluation harness, and a judge you have checked
+# Assignment 7 · Evaluating RepoMind
 
-Configured model: Google Gemini `gemini-3.5-flash-lite`, copied from Assignment 6. Connectivity passed. No real Part C or judge runs have been made yet.
+Status: Parts B and C are complete. Part A has model-authored reference work requiring student review. Part D has a working judge and completed model calls, but human labeling, the student's criterion, and human validation are pending. This is not a final submission.
 
-## Part A · A golden set from traces
+## A · Golden tasks and trace review
 
-**Observed categories from the first 40 runs.** Counts describe the current review; saturation has not been established.
+The first 40 recorded runs in alphabetical order were reviewed. The student wrote the first observation during a guided walkthrough; Codex wrote the other 39 and the decision/failure columns at the student's request. These notes are not independent human labels. Twenty recorded runs remain unreviewed, so no saturation claim is made.
 
-| Kind of failure | Runs | One run that shows it, and its first wrong step |
-|---|---|---|
-| turn_limit_before_triage_complete | 8 | `agent-issue-4601-s01-425ff8`; end after step 4: `turn_limit` before triage writes |
-| explanation_error_only | 2 | `agent-issue-4602-s01-e6b5b0`; step 8 `issues_comment`: inaccurate Kathmandu UTC-minute explanation |
-| question_treated_as_bug | 2 | `agent-issue-4604-s01-bab837`; step 5 `issues_label`: question treated as a bug |
-| none_found | 17 | `agent-issue-4606-s01-b2d4e2`; no first wrong step identified |
-| wrong_or_unverified_file | 3 | `agent-issue-4626-s01-238030`; step 7 `pulls_open`: unverified connection to dashboard |
-| acted_when_no_change_was_needed | 5 | `agent-issue-4628-s01-f4f549`; step 3 `issues_label`: writes on an ignore request |
-| required_writes_missing | 3 | `direct-issue-4620-s01-cc942a`; step 1 `issues_comment`: final comment without the other required writes |
+| Observed category | Runs | Example and first wrong step |
+|---|---:|---|
+| Turn limit before complete triage | 8 | agent-issue-4601-s01-425ff8: stops after its fourth investigation call, before required writes |
+| Explanation error only | 2 | agent-issue-4602-s01-e6b5b0: issues_comment gives an inaccurate Kathmandu UTC-minute explanation |
+| Question treated as a bug | 2 | agent-issue-4604-s01-bab837: issues_label |
+| No failure found | 17 | agent-issue-4606-s01-b2d4e2 |
+| Wrong or unverified file | 3 | agent-issue-4626-s01-238030: pulls_open commits to an unverified dashboard connection |
+| Acted when no change was needed | 5 | agent-issue-4628-s01-f4f549: issues_label |
+| Required writes missing | 3 | direct-issue-4620-s01-cc942a: issues_comment ends triage without the other writes |
 
-- Runs reviewed: 40 in alphabetical run order, with the authorship disclosed below. This selection is not evidence of saturation; 20 runs remain unreviewed. Category counts include `none_found` and `explanation_error_only`, which are not tracker-outcome failures.
+Observed decisions were 37 act and 3 refuse. An interrupted investigation counts as an attempted act, not an intentional stop. Explanation-only problems are separate from tracker-state failures. Full notes and their authorship are in eval/golden/trace_notes.csv and reports/trace_note_authorship.json.
 
-**How you chose the tasks** (slide 12's table): every kind of task, the failures, each path, no copies.
+The golden set contains 28 tasks, selected to cover code fixes, documentation, questions, refusals and no-action cases. Expectations come from maintainer resolutions or the source explanation recorded in each task, rather than copying the agent's answer. Misleading suggested files and error wrappers preserve wrong-file cases. Spam, a template test, an already-fixed issue, a private security handoff, a duplicate and a withdrawn request cover different no-action reasons. Codex authored these expectations; student review remains necessary.
 
-| Stratum | Tasks | Decisions (act, refuse, stop) |
-|---|---|---|
-| routine | 9 | act: 9 |
-| unusual | 5 | act: 5 |
-| adversarial | 8 | act: 5, refuse: 3 |
-| should-not-act | 6 | stop: 6 |
+| Stratum | Tasks | Expected decisions |
+|---|---:|---|
+| routine | 9 | 9 act |
+| unusual | 5 | 5 act |
+| adversarial | 8 | 5 act, 3 refuse |
+| should_not_act | 6 | 6 stop |
 
-- The thinnest stratum is unusual: 5 tasks, so one task changing moves a single-sweep score by 20 percentage points.
+Unusual is the thinnest stratum: one of its five tasks moves a single-sweep score by 20 percentage points. Repeated sweeps produce finer averages but do not make these five tasks representative of every unusual issue. Reference routes are a convention: one issue read for stop; read, search, file read, label and comment for questions; add a draft PR for file changes. They are not measured minimums. The checker was reconciled against 45 recorded end states, with explanation-only errors kept separate (reports/recorded_reconciliation.json).
 
-## Part B · The harness
+## B · Evaluation harness
 
-- How a run becomes a line in `results/`, and what reads the end state: `eval.results_07` selects finished runs matching the way, switches, backend type and subset; rejects duplicate task/sweep pairs; reads each end state from the tracker; applies `eval.grounded.check`; and writes the claim measure, facts, costs and trajectory counts. Scripted results have a separate filename. No Part C results exist yet.
-- Comparison reporting: `python -m eval.comparison_07 pilot --claim plan --delta <chosen_delta>` reports only the first three sweeps' SDs, cost, and required sample size. A zero SD uses one sweep-value step. No arm means, scores, or gain are printed. For the tokens claim, costs are pooled across arms.
-- After the threshold is pushed and five sweeps are complete, `python -m eval.comparison_07 report` prints the claim and arms sections, including stratum SDs, pass metrics, facts, cost and the registered verdict rule. It rejects missing or duplicated task/sweep pairs and configuration mismatches. Git history and trace integrity still need the course checker.
-- Part C result table: pending actual comparison runs; synthetic test results are not reported as experimental evidence.
+The exporter selects finished runs on the fixed subset, checks their tracker end states with eval.grounded, computes trajectory counts from traces, and writes results/A.jsonl and results/B.jsonl. Duplicate task/sweep pairs and mixed configurations are rejected. Scripted plumbing tests use separate files and are not experimental evidence. A comment is not proof that a label or PR exists.
 
-## Part C · Settle one claim
+Pass@k and pass^k use combinatorial counts from each task's passes; pass^k is not pass@1 raised to k. Means and sample SDs are computed over sweep means, and the gain interval uses the two arms' sweep variance. The trajectory metrics count extra steps, precision, recall, repeated calls and unused returns; no judge is needed for those counts. The table in Part C is the harness output for the actual experiment.
 
-- The claim, its two arms, the measure and the sign of the gain:
-- The first three sweeps: each arm's *s*, and the cost of one sweep:
-- *δ*, the sweeps it needs, and the price (slide 55):
-- The bar and the group rule, as committed, and the commit:
+Verification: 123 unittest tests ran successfully, with 2 skipped. The supplied slide-27 trace and the course checker's independent metric cases pass. The test runner emitted existing unclosed trace-file ResourceWarnings, but no test failed.
 
-**The results**, from `results/`.
+## C · Does a plan reduce repeated calls?
 
-| Arm | Runs | Measure: mean (SD) | Score: mean (SD) | pass@k | pass^k | Facts right | Cost per run |
-|---|---|---|---|---|---|---|---|
-| A | | | | | | | |
-| B | | | | | | | |
+Arm A is planned and arm B is agent, both using Gemini gemini-3.5-flash-lite with the same tools and default switches. The measure is exact repeated tool calls with canonicalized arguments; gain is B minus A, so a positive gain favors the plan. Every run uses empty memory, scripted approvals, and a 100,000-token budget. There are eight fixed tasks, two per stratum: g01, g11, g02, g10, g03, g05, g06 and g20. Each arm ran five sweeps, 40 runs total. No arm implementation was changed during the comparison.
 
-| Stratum | Gain | 95% interval |
-|---|---|---|
-| All tasks | | |
-| routine | 9 | act: 9 |
-| unusual | 5 | act: 5 |
-| adversarial | 8 | act: 5, refuse: 3 |
-| should-not-act | 6 | stop: 6 |
+The subset and golden set were pushed in 74d7514 before the first run. After three sweeps per arm, only SDs and costs were inspected. A's observed SD was 0.330719; B's was zero, so the sizing calculation used one count divided by eight tasks, 0.125, for B. Three sweeps give only a rough spread. The smallest useful gain was set to δ = 0.5 repeated calls per task.
 
-- The verdict, by your bar, and why:
-- Cost beside the score (slide 54):
-- Each part of your prediction that missed, and the run that shows why:
+n ≥ (0.330719² + 0.125²) × (2.80 / 0.5)² = 3.92, rounded up to 4 sweeps per arm. The pilot mean sweep cost was $0.058391 for A and $0.077254 for B, or $0.067823 pooled. The sized comparison price was 4 × 2 × $0.067823 = $0.542580. Five sweeps were run as required; their measured total cost was $0.672314, using the repository's configured pricing.
 
-**Where the failed runs first went wrong** (slide 29), last good step down the side, first wrong step across.
+Threshold commit 046df5f was pushed before either fourth sweep. The interval's lower bound must exceed bar = 0, and every stratum's gain must be at least group_floor = 0. k = 3. The prediction favored A by 0.5 repeated calls per task, with the largest benefit on adversarial tasks, because a plan was expected to resist distracting investigation paths.
 
-```
-```
+| Arm | Runs | Repeats mean (SD) | Score % mean (SD) | pass@3 | pass^3 | Facts right | Cost/run |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| A (planned) | 40 | 0.800 (0.401) | 30.000 (14.252) | 0.475 | 0.138 | 76.78% | $0.007053 |
+| B (agent) | 40 | 0.000 (0.000) | 22.500 (10.458) | 0.362 | 0.062 | 74.25% | $0.009755 |
 
-- The biggest count, and whether its cause is local, upstream or structural:
-- How a replay from Assignment 4's checkpoints would confirm it:
-- Runs that called no tool:
+| Arm / stratum | Runs | Repeats mean (SD) | Score % mean (SD) | pass@3 | pass^3 | Facts right | Cost/run |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| A / adversarial | 10 | 1.200 (0.975) | 40.000 (54.772) | 0.900 | 0.000 | 73.91% | $0.006835 |
+| A / routine | 10 | 0.600 (0.822) | 50.000 (0.000) | 0.500 | 0.500 | 79.17% | $0.005889 |
+| A / should_not_act | 10 | 0.700 (1.037) | 30.000 (27.386) | 0.500 | 0.050 | 90.00% | $0.007096 |
+| A / unusual | 10 | 0.700 (0.447) | 0.000 (0.000) | 0.000 | 0.000 | 68.33% | $0.008393 |
+| B / adversarial | 10 | 0.000 (0.000) | 70.000 (27.386) | 1.000 | 0.250 | 92.17% | $0.010369 |
+| B / routine | 10 | 0.000 (0.000) | 20.000 (27.386) | 0.450 | 0.000 | 80.00% | $0.012199 |
+| B / should_not_act | 10 | 0.000 (0.000) | 0.000 (0.000) | 0.000 | 0.000 | 75.00% | $0.003630 |
+| B / unusual | 10 | 0.000 (0.000) | 0.000 (0.000) | 0.000 | 0.000 | 50.83% | $0.012820 |
 
-## Part D · Validate a judge
+| Stratum | Gain B − A | 95% interval |
+|---|---:|---:|
+| All tasks | -0.800 | [-1.152, -0.448] |
+| adversarial | -1.200 | [-2.054, -0.346] |
+| routine | -0.600 | [-1.320, 0.120] |
+| should_not_act | -0.700 | [-1.609, 0.209] |
+| unusual | -0.700 | [-1.092, -0.308] |
 
-- The criterion's lines, and what labelling added to them:
-- The split: 8 examples, 26 tuning, 26 test; each set balanced across the two source systems. Selected with seed 7 using IDs and system names only, without reading labels. Committed as `45fb66c` before judge implementation. This split was fixed before the still-pending human labeling, a departure from the handout's listed workflow, disclosed here.
-- The judge: its model and version, and its TPR and TNR on the test set:
-- Its pass rate on the recorded runs, corrected, with its interval:
-- Its flip rate, and whether a majority of three was kept:
-- What moved on the reformatted and lengthened versions:
-- Its rates on each system:
-- What validating the judge still needs:
+The claim **fails** on this model and subset: the overall upper interval bound, −0.448, is below the preregistered bar of zero. Every stratum's mean gain is negative as well. This is not a claim about all models or all tasks.
 
-## AI assistance
+The prediction missed its direction and magnitude: A was expected to save 0.5 repeats, but added 0.8. planned-g01-s01-82c147 repeats empty-argument issue reads and searches after malformed plan arguments. The predicted adversarial advantage also missed: adversarial has the largest gap, but against A (−1.2). planned-g05-s02-523bfa repeatedly calls reads/searches with empty arguments, while the corresponding agent run completes its permitted question triage without exact repeats. An agent can still waste turns on different searches while scoring zero exact repeats; this metric does not mean zero wasted investigation.
 
-Codex implemented `eval/grounded.py`, `eval/stats.py`, `eval/metrics.py`, `eval/results_07.py`, `eval/comparison_07.py`, and `tests/test_eval.py`, and prepared blank worksheets. Automated verification: 123 unittest tests passed (2 skipped); the supplied slide 27 trace matched all required metrics; the course checker passed the standalone math checks and awarded 10/10 trajectory points; a free scripted run of the supplied slide task exported successfully. Student review is pending. Codex subsequently authored the golden-task labels at the student's request, as disclosed below. Part D comment labels, their reasons, and the judge criterion remain unwritten. Trace-note contributions are described below. The judge runner, correction, bootstrap, and result calculator are implemented. The split was committed separately before implementation. The criterion, prompt examples, reference labels, and model validation runs remain pending.
+A is cheaper ($0.007053 versus $0.009755 per run) and has a higher measured tracker score (30% versus 22.5%). B is about 38.3% more expensive with no measured accuracy advantage. These descriptive scores do not establish a statistically significant accuracy difference. The low pass^3 values show unreliable completion even when a task sometimes passes. A's score also includes three accidental no-action successes: planned-g06-s03-6c9b3b, planned-g06-s04-5a3ff7 and planned-g06-s05-6dddbf call no tools because plan validation fails. Their unchanged tracker correctly passes the no-action expectation, but they did not demonstrate recognizing spam. B has zero no-tool runs.
 
+### Where failed runs first went wrong
 
-### Trace-note authorship update
+All 59 failed runs are listed in reports/LAB_07.json, with call indices and explanations in reports/first_failure_review.json. The following grids count those reviewed boundaries. Recovered errors are not automatically the first causal failure. An unrecovered invalid input, an ungrounded file commitment, or an unwanted action is recorded where it occurs. When investigation ends without a clear earlier wrong call but required writes are missing, first_wrong is stop. last_good names the immediately preceding call, or start before the first call; it is not a claim that every earlier call was ideal.
 
-The observation for `agent-issue-4601-s01-425ff8` was written by the student during a guided walkthrough. At the student's subsequent request, Codex wrote the next 39 observations in alphabetical run order directly in `eval/golden/trace_notes.csv`, using the traces, issue discussions, end states, maintainer history, and selected code reads. These observations are model-authored and have not been independently reviewed by the student. They do not establish completion of the assignment's required human review or independent labeling. No golden-task labels or Part D comment labels were filled in. No saturation claim has been made. Codex subsequently filled the observed-decision and failure-category columns for those 40 runs. Observed act includes investigations interrupted by the harness; a turn limit is not an intentional stop decision. Refuse is inferred from permitted triage with the requested prohibited action left undone. Explanation-only errors are separate from grounded outcome failures.
+Arm A:
 
-Observed route counts for these 40 runs: 37 act, 3 refuse. These are not the golden set decision counts. Full category definitions and counts are in `reports/trace_review_summary.json`.
+| Last good / first wrong | code_read_file | code_search | issues_read | pulls_open | stop |
+|---|---:|---:|---:|---:|---:|
+| start | 0 | 0 | 15 | 0 | 0 |
+| code_search | 6 | 0 | 0 | 0 | 0 |
+| issues_read | 0 | 4 | 0 | 0 | 0 |
+| issues_label | 0 | 0 | 0 | 2 | 1 |
 
+Arm B:
 
-### Golden set v1
+| Last good / first wrong | branches_push | code_search | issues_close | issues_comment | issues_label | stop |
+|---|---:|---:|---:|---:|---:|---:|
+| code_read_file | 6 | 0 | 0 | 0 | 0 | 2 |
+| issues_label | 0 | 0 | 1 | 1 | 0 | 1 |
+| issues_read | 0 | 2 | 0 | 0 | 10 | 0 |
+| code_search | 0 | 0 | 0 | 0 | 0 | 8 |
 
-Selected 28 issues to retain the observed failure types, code fixes, documentation fixes, questions, refusals, and no-action cases. Expectations come from maintainer resolutions or the source explanations in each task. The wrong-file cases deliberately include misleading reporter suggestions and error-reporting wrappers. Advertising, a template test, an already-fixed issue, a private security handoff, a duplicate and a withdrawn issue cover distinct reasons to leave the tracker unchanged. Similar routine fixes are omitted to avoid filling the set with copies.
+The biggest cell is A's start → issues_read, 15 runs. The immediate defect is local (missing arguments), with an upstream plan-serialization cause and a structural validation gap: malformed escaped args_json becomes {} in agent/diff.py:20, and ways/planned.py:555 skips filling when no keys remain. In planned-g01-s01-82c147 the first plan already contains malformed escaped JSON. The executor then proceeds to labels despite missing evidence. This diagnosis is based on the saved plan and call records, not a completed repair experiment.
 
-Reference counts are an explicit efficient-route convention: one issue read for stop; issue read, one search, one file read, label and comment for questions; the same with a draft PR for file changes. These are reference baselines, not empirical claims that every good investigation needs exactly this many calls.
+To test it, use an isolated replay of that run's earliest saved checkpoint before a write, preserving its plan/results and idempotency keys. Decode and validate each step's arguments before allowing execution, then compare missing-argument refusals and final tracker facts. Because the original issue-read failure predates that checkpoint, also replay the saved plan from a clean tracker to test the initiating read. An unchanged checkpoint resume alone cannot undo the already-failed read. A successful replay should eliminate the empty-input calls and prevent unsupported writes; any remaining wrong-file or missing-comment failure would show another cause. Original measurement runs should remain untouched.
 
-The comparison tests the Lecture 2 claim that the plan reduces repeated calls: A is planned, B is agent; measure is repeats and gain is B minus A. The fixed subset has eight tasks, two in each stratum. Both arms will use the configured model, scripted approvals and empty memory. No Part C run has begun.
+B's largest cell is issues_read → issues_label (10 runs): both no-action tasks are labeled on every sweep. That is a structural mismatch between an always-triage behavior and an explicit stop outcome. Only an external tracker check exposes it; a fluent comment saying no change is needed can coexist with an unwanted label.
 
-Golden strata: routine: 9, unusual: 5, adversarial: 8, should_not_act: 6. Decisions: act: 19, refuse: 3, stop: 6.
-The thinnest stratum is unusual (5 tasks); one task changes a single-sweep stratum score by 20 percentage points. It cannot expose a smaller single-sweep change, and these five cases do not represent all unusual issues. Repeated sweeps can yield finer averaged increments.
+## D · Judge implementation and student review pending
 
-Authorship update: Codex authored the golden expectations and subset at the student's explicit request. They are not human-authored independent labels and do not fulfill that course requirement as written. The earlier statement that no golden labels existed is superseded. Part D human labels remain blank.
+The student chose to review the comments personally. eval/labels/labels.csv is therefore a blank 60-row worksheet, not model-written ground truth. reports/review-comments.html displays each comment, issue and tool results without suggested labels or judge verdicts. It saves decisions in browser storage and exports labels.csv and the student's criterion notes. The assignment requires the student to write the criterion and labels; this requirement is still outstanding.
 
-### Current verification and experiment prerequisites
+The split is 8 examples, 26 tuning and 26 test items, balanced across the two source systems, selected using seed 7 and IDs/system names only. It was committed separately in 45fb66c before judge implementation. It preceded human labeling, which departs from the handout's listed sequence.
 
-The golden set and eight-task subset were committed as `74d7514` and pushed to origin before any Part C run. The grounded checker was applied to 45 recorded end states; all reviewed outcome notes agree, with explanation-only issues kept separate. Details are in `reports/recorded_reconciliation.json`. The automated checker currently awards 36/80: golden 16/16, math 8/12, trajectory 10/10 and judge split 2/16. This is an incomplete submission, not a final score. No threshold has been chosen from unseen pilot data, no real comparison has run, and no validation results have been invented.
+A provisional model-authored criterion, example prompt and reference decisions were prepared before the student's reply. The reference decisions were moved to reports/model_reference, out of the student's worksheet. The author read outputs from all splits while preparing those materials, so the demonstration is not an independently held-out human validation. Its numbers are archived separately in reports/judge_model_reference.json and are not reported as human TPR or TNR here.
+
+The provisional criterion covers unseen file/document contents, unsupported line numbers, tests or runtime observations that never occurred, invented errors/counts, fabricated quotations, contradicted code/data-flow claims, unconfirmed completed work, and circular reliance on the agent's own PR text. Search excerpts support what they actually show; proposed work is distinct from completed work; grounded diagnostic reasoning is allowed. These were model-authored distinctions, not findings from a student's labeling process. The student's own criterion and any resulting relabeling changes still need to be recorded.
+
+The judge uses Gemini gemini-3.5-flash-lite through the metered client, with settings.yaml, the criterion, prompt and split protected by the digest in eval/judge/frozen.json. No prompt change was made after the tuning run. The prompt embeds only examples-set j14 and j47; no tuning or test item is embedded. This is a fixed configured model identifier, not proof that the provider cannot change the weights behind that identifier.
+
+All model calls are complete: 26 tuning judgments, three 26-item test passes, 52 formatting/length variants, and 20 recorded agent comments. These observations do not require human labels: the judge passes 20/20 recorded comments; the repeat flip rate is 3.85% (j43); and the formatting/length movement rate is 3.85% (j34). Flipped IDs are in eval/judge/for_a_person.txt.
+
+Human TPR, TNR, corrected pass rate, bootstrap bounds, per-system rates, and whether majority voting improves accuracy remain pending. None can be established from an unlabeled worksheet. The correction code clips to [0,1], refuses |TPR + TNR − 1| ≤ 0.1, and uses 2,000 bootstrap item resamples. Its interval conditions on the observed recorded pass rate; it does not resample that separate comment sample.
+
+After the student finishes, compare their own criterion and example decisions with the provisional prompt. A changed criterion, prompt or settings defines a new judge: preserve these demonstration artifacts and validate the replacement. Do not tune against the test judgments. The author’s earlier exposure to all fixture outputs is a limitation that a clean new held-out set would address. For any formatting movement, a possible future revision is a stronger instruction to ignore presentation and repeated text and evaluate each factual claim once; that revision must be validated again, not silently substituted into these results.
+
+## AI assistance and submission status
+
+Codex implemented the evaluation code and tests, authored 39 trace observations and the golden expectations, ran the experiments, reviewed the 59 failure boundaries, and prepared this report and review page. The first trace observation came from the student. Provisional model reference labels and criterion are explicitly separated from the pending human review. Automated tests and course checks verify calculations and artifact integrity; they do not certify human authorship or independent judgment.
+
+The subset and threshold were pushed in the required order. The comparison is complete. The final lab-07 tag is withheld until the remaining human-review requirements and final check are resolved. This report should not be submitted as a claim that those requirements are already complete.
+
+Latest course check: 70/80 automated points, with no integrity flags. The remaining automated deductions are the blank human labels and the rates that depend on them. This is a progress check, not a final grade.

@@ -1,4 +1,4 @@
-"""Recompute judge validation from frozen verdicts and independently supplied labels.
+"""Recompute judge validation from frozen verdicts and supplied reference labels.
 
 python -m eval.judge_report             # inspect
 python -m eval.judge_report --write     # update only judge section and referral list
@@ -33,7 +33,7 @@ def summarize():
     labels={r['id']:r['label'] for r in rows}
     outputs={p.stem:json.loads(p.read_text()) for p in (ROOT/'fixtures/judge/outputs').glob('*.json')}
     if len(rows)!=60 or len(labels)!=60 or set(labels)!=set(outputs) or any(r['label'] not in ('pass','fail') or not r['reason'].strip() for r in rows):
-        raise ValueError('60 independent labels with reasons are required')
+        raise ValueError('60 reference labels with reasons are required')
     all_ids=[i for group in split.values() for i in group]
     if len(all_ids)!=60 or set(all_ids)!=set(labels):
         raise ValueError('split must cover all IDs exactly once')

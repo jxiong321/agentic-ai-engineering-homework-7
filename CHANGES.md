@@ -33,7 +33,7 @@ Removals are logged like additions.
 - **Removed:** nothing
 - **Constrained:** multi-agent decomposition, measured against one agent at the same budget and not merged; RepoMind stays one agent
 
-## Assignment 7 (in progress)
-- **Added:** an evaluation harness with a grounded checker, trajectory metrics, counting-based pass metrics, spread and interval calculations, and a results exporter; regression tests, trace review notes, labeling worksheets, and comparison reporting that separates pilot sizing from final verdicts.
-- **Removed:** single-run claims as sufficient evidence for a comparison; no comparison conclusion has been drawn yet.
-- **Constrained:** every later comparison claim to a run count, a spread, and a bar pushed before the runs it governs. Human labels and the committed split must precede judge implementation.
+## Assignment 7
+- **Added:** an evaluation harness with a grounded checker, trajectory metrics, counting-based pass metrics, spread and interval calculations, and a results exporter; regression tests, trace review notes, reference labels with authorship disclosure, comparison reporting that separates pilot sizing from final verdicts, and a metered frozen judge with repeatability and formatting checks.
+- **Removed:** single-run claims as sufficient evidence for a comparison; the five-sweep experiment rejects the claim that this plan reduces repeated calls.
+- **Constrained:** every later comparison claim to a run count, a spread, and a bar pushed before the runs it governs. The split was committed before judge implementation. Model-authored labels support a demonstration only; independent human validation remains outstanding.
