@@ -1,0 +1,9 @@
+# Planned versus agent: repeated tool calls. Two tasks per stratum.
+g01
+g11
+g02
+g10
+g03
+g05
+g06
+g20

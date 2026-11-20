@@ -1,0 +1,28 @@
+id: g10
+kind: single
+issues:
+- 4611
+stratum: unusual
+decision: act
+expect:
+  comment:
+    label: bug
+    file: src/util/money.ts
+  labels:
+  - bug
+  pr: draft
+source: 'Reading src/util/money.ts: parseAmount requires at least one digit before
+  the decimal point; src/ingest/schema.ts only forwards its null result as badAmount.
+  Accepting .50 and -.75 requires changing the parser.'
+runs:
+- direct-issue-4611-s01-8d73ed
+- planned-issue-4611-s01-b3cbe5
+reference:
+  calls: 6
+  tools:
+  - issues_read
+  - code_search
+  - code_read_file
+  - issues_label
+  - pulls_open
+  - issues_comment
