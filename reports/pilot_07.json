@@ -1,0 +1,17 @@
+{
+  "pilot_sweeps": 3,
+  "observed_s_a": 0.33071891388307384,
+  "observed_s_b": 0.0,
+  "s_a": 0.33071891388307384,
+  "s_b": 0.125,
+  "zero_sd_fallback": 0.125,
+  "delta": 0.5,
+  "n_needed": 4,
+  "mean_sweep_cost_usd": 0.0678225,
+  "price_usd": 0.54258,
+  "caution": "Three sweeps give a rough spread; zero SD uses one step of a sweep value.",
+  "sweep_cost_usd_by_arm": {
+    "A": 0.05839133333333333,
+    "B": 0.07725366666666666
+  }
+}
