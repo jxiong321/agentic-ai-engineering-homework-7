@@ -1,6 +1,7 @@
 {
-  "author": null,
-  "status": "Awaiting student judgments. The student chose to review the comments personally.",
-  "suggestions_in_worksheet": false,
-  "prior_model_labels": "reports/model_reference/labels.csv (separate provisional demonstration; not human labels)"
+  "author": "Codex",
+  "human_reviewed": false,
+  "status": "Draft labels and reasons prepared at the student request for review.",
+  "suggestions_in_worksheet": true,
+  "limitation": "Reviewing model-written suggestions does not make these independently human-authored labels."
 }

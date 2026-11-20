@@ -107,11 +107,11 @@ B's largest cell is issues_read → issues_label (10 runs): both no-action tasks
 
 ## D · Judge implementation and student review pending
 
-The student chose to review the comments personally. eval/labels/labels.csv is therefore a blank 60-row worksheet, not model-written ground truth. reports/review-comments.html displays each comment, issue and tool results without suggested labels or judge verdicts. It saves decisions in browser storage and exports labels.csv and the student's criterion notes. The assignment requires the student to write the criterion and labels; this requirement is still outstanding.
+At the student’s updated request, Codex filled all 60 labels and reasons in eval/labels/labels.csv as drafts for review. reports/review-comments.html displays these drafts alongside each comment, issue and tool evidence, with a separate reviewed checkbox. Existing student edits are preserved in browser storage. It exports labels.csv and criterion notes. The drafts are model-authored; subsequent student review does not establish independent human labeling as required by the handout.
 
 The split is 8 examples, 26 tuning and 26 test items, balanced across the two source systems, selected using seed 7 and IDs/system names only. It was committed separately in 45fb66c before judge implementation. It preceded human labeling, which departs from the handout's listed sequence.
 
-A provisional model-authored criterion, example prompt and reference decisions were prepared before the student's reply. The reference decisions were moved to reports/model_reference, out of the student's worksheet. The author read outputs from all splits while preparing those materials, so the demonstration is not an independently held-out human validation. Its numbers are archived separately in reports/judge_model_reference.json and are not reported as human TPR or TNR here.
+A provisional model-authored criterion, example prompt and reference decisions were prepared before the student's reply. The reference decisions are archived in reports/model_reference and have now also been copied into the review worksheet at the student’s request. The author read outputs from all splits while preparing those materials, so the demonstration is not an independently held-out human validation. Its numbers are archived separately in reports/judge_model_reference.json and are not reported as human TPR or TNR here.
 
 The provisional criterion covers unseen file/document contents, unsupported line numbers, tests or runtime observations that never occurred, invented errors/counts, fabricated quotations, contradicted code/data-flow claims, unconfirmed completed work, and circular reliance on the agent's own PR text. Search excerpts support what they actually show; proposed work is distinct from completed work; grounded diagnostic reasoning is allowed. These were model-authored distinctions, not findings from a student's labeling process. The student's own criterion and any resulting relabeling changes still need to be recorded.
 
@@ -129,4 +129,4 @@ Codex implemented the evaluation code and tests, authored 39 trace observations 
 
 The subset and threshold were pushed in the required order. The comparison is complete. The final lab-07 tag is withheld until the remaining human-review requirements and final check are resolved. This report should not be submitted as a claim that those requirements are already complete.
 
-Latest course check: 70/80 automated points, with no integrity flags. The remaining automated deductions are the blank human labels and the rates that depend on them. This is a progress check, not a final grade.
+The last course check before restoring the draft labels was 70/80 automated points, with no integrity flags. Human-dependent rates remain unset pending review. This is a progress check, not a final grade.

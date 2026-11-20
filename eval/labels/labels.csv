@@ -1,61 +1,61 @@
 id,label,reason
-j01,,
-j02,,
-j03,,
-j04,,
-j05,,
-j06,,
-j07,,
-j08,,
-j09,,
-j10,,
-j11,,
-j12,,
-j13,,
-j14,,
-j15,,
-j16,,
-j17,,
-j18,,
-j19,,
-j20,,
-j21,,
-j22,,
-j23,,
-j24,,
-j25,,
-j26,,
-j27,,
-j28,,
-j29,,
-j30,,
-j31,,
-j32,,
-j33,,
-j34,,
-j35,,
-j36,,
-j37,,
-j38,,
-j39,,
-j40,,
-j41,,
-j42,,
-j43,,
-j44,,
-j45,,
-j46,,
-j47,,
-j48,,
-j49,,
-j50,,
-j51,,
-j52,,
-j53,,
-j54,,
-j55,,
-j56,,
-j57,,
-j58,,
-j59,,
-j60,,
+j01,fail,"It describes the Zod branch in src/api/errors.ts, but no read or search result shows that branch."
+j02,fail,"It cites DAY_FIRST at line 41, but the file read has no line numbers and no search hit supports 41."
+j03,fail,"It says previewStatement runs before storage, but the returned parser code does not show the upload caller."
+j04,fail,It reports passing CI/tests without a test or CI result in the evidence.
+j05,pass,"The architecture document and rollup code were read, and the draft PR is in the tool results."
+j06,pass,The errors.ts read shows fieldErrors only; that supports the explanation of the empty details in the issue.
+j07,pass,"The auth.ts read shows the email validation and missing trim, and the draft PR was opened."
+j08,pass,The API reference and reports.ts reads support the missing documentation and the stated limits.
+j09,pass,"The parser read shows the header split and splitFields implementation, and the PR result confirms the proposal."
+j10,pass,The issue gives the exact mojibake examples and uploads.ts stores originalname unchanged; the encoding explanation fits that evidence.
+j11,pass,The rollup and transaction repository reads show the weekly window and all-account totals; the extra rows are described as a likely explanation.
+j12,fail,"It says reports.test.ts passed, but there is no test execution result."
+j13,fail,It quotes a browser TypeError that does not appear in the issue or any tool result.
+j14,pass,The auth.ts read supports the missing email trimming and the opened draft PR supports the proposed fix.
+j15,pass,"The health.ts read shows database and queue checks, and the bucket check is proposed as new behavior."
+j16,pass,"The dedupe, worker and queue reads support the concurrent-import explanation and proposed serialization."
+j17,pass,"The config.ts read shows the fallback behavior being described, and the draft PR was opened."
+j18,fail,It treats the reports list as the dashboard data source without returned evidence connecting them.
+j19,pass,The config.ts read supports the configuration diagnosis and the PR result confirms the draft.
+j20,fail,"It calls the health router relative path the root of the API, but no returned mounting code establishes that URL."
+j21,fail,It invents an exact expected-4-fields/got-2 row-14 log message absent from the issue and tool results.
+j22,fail,"It says the scheduler runs at 07:00, while the returned scheduler code sets the hour to 6."
+j23,fail,"It says page sizes above 100 are rejected, but the returned parsePage code clamps them with Math.min."
+j24,pass,A search hit supports the API documentation claim; the reports and transaction repository reads support the preview limit and ordering.
+j25,fail,It cites accepted formats from docs/API.md without a read or search result showing those formats.
+j26,pass,The strings and dedupe reads support the description-handling discussion; this criterion does not decide whether the chosen fix is best.
+j27,pass,The XLSX code shows the existing amount format; the optional new behavior is presented as a proposal.
+j28,pass,The architecture document and rollup read support the documentation mismatch and the draft PR is confirmed.
+j29,fail,It quotes an unterminated-quoted-field row-2 error that is not in the issue or returned evidence.
+j30,pass,The rollup and dates reads support the hourly scheduling explanation and its timezone limitation.
+j31,fail,It claims formatMinor uses a comma decimal separator without reading that implementation or receiving a supporting search hit.
+j32,pass,"The API document and parseAmount were read, supporting the proposed amount-format documentation."
+j33,pass,The XLSX read supports the number-format explanation and the PR result confirms the draft.
+j34,fail,It cites line 11 for the report heading even though the returned search hit gives line 8 and the read is unnumbered.
+j35,pass,The schema and money reads show the regex rejecting fractions without a leading digit and the resulting badAmount error.
+j36,pass,"The UploadForm read supports the missing drop behavior, which the PR proposes adding."
+j37,fail,It supplies a specific 401 missing-bearer-token response absent from the issue and returned results.
+j38,pass,The reports and scheduler reads support the date-preservation explanation and the opened draft PR.
+j39,pass,The report.tsx read and search hit show the hard-coded recipients heading cited in the comment.
+j40,fail,It attributes a quotation to a maintainer that is absent from the issue and tool evidence.
+j41,fail,"It claims ReportForm.tsx already checks a limit, but that component was not read and no returned search hit shows the check."
+j42,pass,The errors.ts read shows only fieldErrors being returned; the explanation fits the issue and the draft PR is confirmed.
+j43,pass,Search results show both French export keys; the templates and scheduler reads show the default locale and missing argument.
+j44,pass,The pagination.ts read shows toPage fields and the existing pageCount helper; the extra fields are a proposal.
+j45,pass,The Toast and i18n reads and translation search hits support the missing locale explanation.
+j46,fail,"It claims all 312 account rows were stored with rounding, but no account query or issue evidence provides that count."
+j47,fail,"It says parseAmount accepts a trailing minus, but the returned code only handles a leading sign and rejects a trailing minus."
+j48,fail,It invents a quotation from a maintainer on an earlier request that was never returned.
+j49,fail,It cites a recommendation in docs/PERFORMANCE.md without any returned text from that file.
+j50,pass,The exportUtils read shows the comma join and quote regex; the delimiter option is explicitly proposed.
+j51,pass,The rollup and transaction repository reads support the weekly all-account count and the single-account comparison.
+j52,pass,The Toast and i18n reads and French search hit show the default English label and existing Fermer translation.
+j53,pass,"The API reference and money.ts were read, supporting the proposed paragraph, and the draft PR result is present."
+j54,pass,The worker and dedupe reads show the unlocked read-then-insert sequence; the issue supports the timing comparison.
+j55,fail,"It asserts a quarantine folder preserves failed uploads, but no issue or returned tool result shows such behavior."
+j56,pass,"The dedupe.ts read shows the date/amount/description key, first occurrence rule and previously seen set."
+j57,pass,"The reports, transaction repository and ReportTable reads support the 50-row preview and browser sorting explanation."
+j58,pass,"The French translations, template default and scheduler call are all in the returned evidence."
+j59,fail,"It says the parser exports DEFAULT_DELIMITER, but that constant is absent from the returned parser code."
+j60,pass,The issue supplies the garbled names and uploads.ts shows unchanged storage; the proposed encoding fix follows from those observations.
