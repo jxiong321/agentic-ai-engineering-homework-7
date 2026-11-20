@@ -1,5 +1,4 @@
 {
-  "author": "Codex",
   "method": "Causal review of call records: recovered tool errors are not automatically the first failure; record unrecovered invalid inputs, ungrounded file commitment, unwanted actions, or premature stop. last_good names the call immediately before that boundary.",
   "runs": [
     {

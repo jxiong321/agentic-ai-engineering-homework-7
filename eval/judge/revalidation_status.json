@@ -1,0 +1,15 @@
+{
+  "version": "v2",
+  "status": "complete",
+  "reason": "Credits restored; all required judge calls and checks completed.",
+  "failed_session": "judge-tuning-7b31ff",
+  "new_verdicts": 176,
+  "previous_version": "eval/judge/archive/v1",
+  "labels_sha256": "4374da35d7db49aefb22cff3292bf2774c04966386cdf99a7006e2b0d4159c6c",
+  "criterion_sha256": "eee0998a364b721a7bba96390283aa6cc9d702050c4094848e5ab511d354f31f",
+  "commits_or_pushes_performed": false,
+  "judge_cost_usd": 0.431297,
+  "automated_points": 80,
+  "automated_maximum": 80,
+  "integrity_flags": []
+}

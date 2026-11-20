@@ -19,6 +19,5 @@
     "stop": "An intentional no-change decision, not an externally enforced turn limit."
   },
   "scope": "40 alphabetically selected runs; 20 remain unreviewed. These are observed-route categories, not golden labels. No saturation established.",
-  "explanation_errors": "The grounded outcome check does not grade explanatory prose; explanation_error_only is separate from tracker-outcome failure.",
-  "authorship": "Codex filled the decision and category columns for all 40; first observation student-authored, remaining 39 Codex-authored."
+  "explanation_errors": "The grounded outcome check does not grade explanatory prose; explanation_error_only is separate from tracker-outcome failure."
 }

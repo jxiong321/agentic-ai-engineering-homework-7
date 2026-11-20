@@ -1,0 +1,4 @@
+{
+  "criterion_snapshot_available": false,
+  "note": "The archived criterion file was removed at user request. The original frozen digest is retained as historical metadata; this archive is no longer a complete reproducible configuration. Current judge configuration and verdicts are unchanged."
+}
